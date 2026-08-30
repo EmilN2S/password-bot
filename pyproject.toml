@@ -1,0 +1,20 @@
+[project]
+name = "password-bot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "EmilN2S", email = "emil.nazaryan@proton.me" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "aiogram>=3.31.0",
+    "dotenv>=0.9.9",
+]
+
+[project.scripts]
+password-bot = "password_bot:main"
+
+[build-system]
+requires = ["uv_build>=0.12.2,<0.13.0"]
+build-backend = "uv_build"
