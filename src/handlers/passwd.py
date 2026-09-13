@@ -2,6 +2,7 @@ import os, random, string
 from aiogram import Router
 from aiogram.types import Message
 from aiogram.filters import Command
+from handlers.setting import length
 
 router = Router()
 
@@ -14,12 +15,7 @@ def passwd(pass_length):
 
 @router.message(Command("pass"))
 async def pass_handler(message: Message):
-    try:
-        length = int(message.text.split()[1])
+    
+    password = passwd(length)
 
-        password = passwd(length)
-
-        await message.answer(f"Your password: {password}")
-
-    except (IndexError, ValueError):
-        await message.answer("Try: /pass 10")
+    await message.answer(f"Your password: {password}")
