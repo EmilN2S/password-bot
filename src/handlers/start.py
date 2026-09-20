@@ -6,4 +6,4 @@ router = Router()
 
 @router.message(Command("start"))
 async def start_handler(message: Message):
-    await message.answer(f"Hi, {message.from_user.first_name}.\nWrite /pass *number* for password\nWrite /help for help", parse_mode="Markdown")
+    await message.answer(f"Hi, {message.from_user.first_name}.\nWrite /help to get help", parse_mode="Markdown")

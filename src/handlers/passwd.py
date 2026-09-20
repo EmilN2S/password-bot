@@ -1,5 +1,5 @@
 import os, random, string
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.filters import Command
 from handlers.setting import length
@@ -14,6 +14,7 @@ def passwd(pass_length):
 
 
 @router.message(Command("pass"))
+@router.message(F.text.lower() == "generate password")
 async def pass_handler(message: Message):
     
     password = passwd(length)
