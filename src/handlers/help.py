@@ -8,7 +8,7 @@ router = Router()
 @router.message(Command("help"))
 @router.message(F.text.lower() == "help")
 async def help_handler(message: Message):
-    await message.answer("Write /start to begin again\n",
+    await message.answer("Write /start to begin again\n"
                          "Write /pass *number* for password\n"
                          "Write /settings for settings\n"
                          "Write /help for help", 
