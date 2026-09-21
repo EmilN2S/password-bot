@@ -17,7 +17,7 @@ class SettingStates(StatesGroup):
 async def settings_handler(message: Message, state: FSMContext):
     current = await get_setting(message.from_user.id)
     await message.answer(
-        f"Current password length: <b>{current}</b>\n\nSend a new length (1–128):",
+        f"Current password length: <b>{current}</b>\n\nSend a new length (8–128):",
         parse_mode="HTML",
     )
     await state.set_state(SettingStates.waiting_for_length)
@@ -28,8 +28,8 @@ async def receive_length(message: Message, state: FSMContext):
     await state.clear()
 
     text = message.text.strip()
-    if not text.isdigit() or not (1 <= int(text) <= 128):
-        await message.answer("❌ Please send a whole number between 1 and 128.")
+    if not text.isdigit() or not (8 <= int(text) <= 128):
+        await message.answer("❌ Please send a whole number between 8 and 128.")
         return
 
     length = int(text)

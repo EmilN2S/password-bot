@@ -5,7 +5,7 @@ DB_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "users.db"
 )
 
-DEFAULT_LENGTH = 10
+DEFAULT_LENGTH = 12
 
 
 async def init_db() -> None:
