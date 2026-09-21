@@ -5,6 +5,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message
 
 from database.db import get_setting, set_setting
+from keyboards.main import main_keyboard
 
 router = Router()
 
@@ -14,7 +15,7 @@ class SettingStates(StatesGroup):
 
 
 @router.message(Command("settings"))
-
+@router.message(F.text.lower() == "settings")
 async def settings_handler(message: Message, state: FSMContext):
     current = await get_setting(message.from_user.id)
     await message.answer(
@@ -35,4 +36,4 @@ async def receive_length(message: Message, state: FSMContext):
 
     length = int(text)
     await set_setting(message.from_user.id, length)
-    await message.answer(f"✅ Password length set to <b>{length}</b>.", parse_mode="HTML")
+    await message.answer(f"✅ Password length set to <b>{length}</b>.", parse_mode="HTML", reply_markup=main_keyboard())
