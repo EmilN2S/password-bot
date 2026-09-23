@@ -25,6 +25,9 @@ HELP_TEXT = (
     "💡 <b>Tip:</b> By default your passwords are generated with the "
     "length you set in <b>/settings</b>. The characters pool includes "
     "uppercase &amp; lowercase letters, digits, and special symbols."
+    "\n"
+    "━━━━━━━━━━━━━━━━━━\n"
+    "Project source code: <a href='https://github.com/EmilN2S/password-bot'>GitHub</a>"
 )
 
 
