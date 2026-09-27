@@ -1,18 +1,14 @@
 from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message
 
 from database.db import get_setting, set_setting
 from keyboards.main import main_keyboard
 
+from states.pass_length import SettingStates
+
 router = Router()
-
-
-class SettingStates(StatesGroup):
-    waiting_for_length = State()
-
 
 @router.message(Command("settings"))
 @router.message(F.text.lower() == "settings")
