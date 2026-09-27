@@ -1,3 +1,3 @@
-An open source, telegram bot, that generating a password.
+![Version](https://img.shields.io/github/v/tag/EmilN2S/password-bot)
 
-Current version v1.0.1.
+An open source, telegram bot, that generating a password.
