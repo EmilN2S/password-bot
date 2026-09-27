@@ -27,8 +27,6 @@ async def settings_handler(message: Message, state: FSMContext):
 
 @router.message(SettingStates.waiting_for_length, F.text)
 async def receive_length(message: Message, state: FSMContext):
-    await state.clear()
-
     text = message.text.strip()
     if not text.isdigit() or not (8 <= int(text) <= 128):
         await message.answer("❌ Please send a whole number between 8 and 128.")
@@ -36,4 +34,5 @@ async def receive_length(message: Message, state: FSMContext):
 
     length = int(text)
     await set_setting(message.from_user.id, length)
+    await state.clear()
     await message.answer(f"✅ Password length set to <b>{length}</b>.", parse_mode="HTML", reply_markup=main_keyboard())
